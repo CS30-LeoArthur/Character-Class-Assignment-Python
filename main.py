@@ -32,27 +32,37 @@ class Backpack():
     
     def open_bag(self):
         self.backpack_open = True
-        print(f"{self.backpack_size} {self.backpack_color} is now open")
+        print(f"{self.backpack_size} {self.backpack_color} backpack is now open")
     
     def close_bag(self):
         self.backpack_open = False
-        print(f"{self.backpack_size} {self.backpack_color} is now closed")
+        print(f"{self.backpack_size} {self.backpack_color} backpack is now closed")
     
     def put_in(self, item):
         if self.backpack_open == True:
             self.backpack_items.append(item)
-            print(f"{item} has been put in to {self.backpack_size} {self.backpack_color}")
+            print(f"{item} has been put in to {self.backpack_size} {self.backpack_color} backpack")
         else:
             print("This backpack is not open")
     
     def take_out(self, item):
         if self.backpack_open == True:
-            self.backpack_items.pop(item)
-            print(f"{item} has been taken out of {self.backpack_size} {self.backpack_color}")
+            self.backpack_items.remove(item)
+            print(f"{item} has been taken out of {self.backpack_size} {self.backpack_color} backpack")
         else:
             print("This backpack is not open")
     
 backpack1 = Backpack("blue", "small", [], False)
+backpack2 = Backpack("red", "medium", [], False)
+backpack3 = Backpack("green", "large", [], False)
+
+backpack1.open_bag()
+backpack1.put_in("lunch")
+backpack1.put_in("jacket")
+backpack1.close_bag()
+backpack1.open_bag()
+backpack1.take_out("jacket")
+backpack1.close_bag()
 
 
 
